@@ -7,7 +7,7 @@ def main(path):
     info = [int(val) for val in input_lines[0].split(" ")]
     time, intersections, streets, cars, points = info
     # List slice of streets from input
-    street_info = input_lines[1:cars]
+    street_info = input_lines[1:-cars]
     intsec_dict = create_int_dict(street_info)
     #car_info = input_lines[intersections+cars:]
     #print(create_car_list(car_info))
@@ -29,7 +29,7 @@ def create_int_dict(street_info):
             intersection_dict[end] = ([], [st_name])
         else:
             intersection_dict[end][1].append(st_name)
-    print(intersection_dict)
+    #print(intersection_dict)
     return intersection_dict
 
 
