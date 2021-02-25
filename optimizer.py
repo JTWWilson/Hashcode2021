@@ -6,7 +6,7 @@ def find_solution(time, intsec_dict, intsec_count, path, sensitivity):
     blocksize = time/sensitivity
     intsec_weightings = []
     for intsec_num in range(intsec_count):
-        intersection = intsec_dict[intsec_num]
+        intersection = intsec_dict[str(intsec_num)]
         this_intsec_weights = []
         for road in intersection[0]:
             volume = street_volumes[road]
