@@ -1,6 +1,7 @@
 from format_data import *
 import sys
 from optimizer import *
+
 def main(path, path_out):
     # Input processing
     input_lines = load_file(path).split("\n")[:-1]
