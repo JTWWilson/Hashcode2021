@@ -13,8 +13,9 @@ def find_solution(time, intsec_dict, intsec_count, path, sensitivity):
                 volume = street_volumes[road]
             except Exception as identifier:
                 volume = 0
-            normalised_volumes = (volume - 1) // blocksize + 1 
-            this_intsec_weights.append((road, normalised_volumes))
+            normalised_volumes = int((volume - 1) // blocksize + 1) 
+            if normalised_volumes > 0:
+                this_intsec_weights.append((road, normalised_volumes))
         intsec_weightings.append(this_intsec_weights)
     return intsec_weightings
 
