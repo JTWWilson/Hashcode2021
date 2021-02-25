@@ -1,8 +1,8 @@
 from format_data import load_file
-
-def main():
+import sys
+def main(path):
     # Input processing
-    input_lines = load_file('./datasets/a.txt').split("\n")[:-1]
+    input_lines = load_file(path).split("\n")[:-1]
     info = [int(val) for val in input_lines[0].split(" ")]
     time, intersections, streets, cars, points = info
     # List slice of streets from input
@@ -35,5 +35,6 @@ def create_car_list(car_info):
     return car_list
 
 if __name__ == '__main__':
-    main()
+    assert (len(sys.argv) == 2)
+    main(sys.argv[1])
 
