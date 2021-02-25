@@ -1,4 +1,4 @@
-from format_data import load_file
+from format_data import *
 import sys
 from optimizer import *
 def main(path):
@@ -12,6 +12,7 @@ def main(path):
     #car_info = input_lines[intersections+cars:]
     #print(create_car_list(car_info))
     weightings = find_solution(time, intsec_dict, intersections, path, 20)
+    write_to_file("Aoutput.txt", weightings)
 
 
 def create_int_dict(street_info):
