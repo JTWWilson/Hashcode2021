@@ -16,6 +16,8 @@ def find_solution(time, intsec_dict, intsec_count, path, sensitivity):
             normalised_volumes = int((volume - 1) // blocksize + 1) 
             if normalised_volumes > 0:
                 this_intsec_weights.append((road, normalised_volumes))
+        if len(this_intsec_weights) == 0:
+            this_intsec_weights.append((intersection[1][0], 1))
         intsec_weightings.append(this_intsec_weights)
     return intsec_weightings
 
