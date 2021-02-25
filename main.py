@@ -26,6 +26,7 @@ def create_int_dict(street_info):
             intersection_dict[end] = ([], [st_name])
         else:
             intersection_dict[end][1].append(st_name)
+    print(intersection_dict)
     return intersection_dict
 
 def create_car_list(car_info):
