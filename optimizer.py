@@ -1,4 +1,5 @@
-
+import re
+from collections import Counter
 
 def find_solution(inputs):
     road_locations = {}
@@ -17,3 +18,16 @@ def find_solution(inputs):
     #       compare intersections
     #sort volumes
     #pick based on volume
+    pass
+
+def calculate_volumes(path) -> dict:
+    with open(path) as f:
+        no_roads = f.readline().split(' ')[2]
+        for i in range(int(no_roads)):
+            next(f)
+        data = f.read()
+    streets = re.findall(r'[a-z-]+', data)
+    street_count = Counter(streets)
+    return dict(street_count)
+
+# calculate_volumes('./datasets/a.txt')
