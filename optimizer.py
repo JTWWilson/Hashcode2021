@@ -9,7 +9,10 @@ def find_solution(time, intsec_dict, intsec_count, path, sensitivity):
         intersection = intsec_dict[str(intsec_num)]
         this_intsec_weights = []
         for road in intersection[0]:
-            volume = street_volumes[road]
+            try:
+                volume = street_volumes[road]
+            except Exception as identifier:
+                volume = 0
             normalised_volumes = (volume - 1) // blocksize + 1 
             this_intsec_weights.append((road, normalised_volumes))
         intsec_weightings.append(this_intsec_weights)
