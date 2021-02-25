@@ -1,7 +1,7 @@
 from format_data import *
 import sys
 from optimizer import *
-def main(path):
+def main(path, path_out):
     # Input processing
     input_lines = load_file(path).split("\n")[:-1]
     info = [int(val) for val in input_lines[0].split(" ")]
@@ -12,7 +12,7 @@ def main(path):
     #car_info = input_lines[intersections+cars:]
     #print(create_car_list(car_info))
     weightings = find_solution(time, intsec_dict, intersections, path, 20)
-    write_to_file("Aoutput.txt", weightings)
+    write_to_file(path_out, weightings)
 
 
 def create_int_dict(street_info):
@@ -41,6 +41,6 @@ def create_car_list(car_info):
     return car_list
 
 if __name__ == '__main__':
-    assert (len(sys.argv) == 2)
-    main(sys.argv[1])
+    assert (len(sys.argv) == 3)
+    main(sys.argv[1], sys.argv[2])
 
