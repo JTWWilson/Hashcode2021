@@ -1,24 +1,20 @@
 import re
 from collections import Counter
 
-def find_solution(inputs):
-    road_locations = {}
-    for intersection in range(0, INTERSECTION_COUNT):
+def find_solution(time, intsec_dict, intsec_count, path, sensitivity):
+    street_volumes = calculate_volumes(path)
+    blocksize = time/sensitivity
+    intsec_weightings = []
+    for intsec_num in range(0, intsec_count):
+        intersection = intsec_dict[intsec_num]
+        this_intsec_weights = []
         for road in intersection[0]:
-            road_locations[road] = intersection
-    for car in cars:
-        for road in cars:
-            dictionary
-    # for car in list of cars
-    #   for road in car's route
-    # add volume information to road
+            volume = street_volumes[road]
+            (volume - 1) / blocksize + 1 
+            this_intsec_weights.append([road, volume])
+        intsec_weightings.append(this_intsec_weights)
+    return intsec_weightings
 
-    # for intersection in intersections
-    #   for input_road in intersection
-    #       compare intersections
-    #sort volumes
-    #pick based on volume
-    pass
 
 def calculate_volumes(path) -> dict:
     with open(path) as f:
