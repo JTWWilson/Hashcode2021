@@ -5,13 +5,13 @@ def find_solution(time, intsec_dict, intsec_count, path, sensitivity):
     street_volumes = calculate_volumes(path)
     blocksize = time/sensitivity
     intsec_weightings = []
-    for intsec_num in range(0, intsec_count):
+    for intsec_num in range(intsec_count):
         intersection = intsec_dict[intsec_num]
         this_intsec_weights = []
         for road in intersection[0]:
             volume = street_volumes[road]
-            (volume - 1) / blocksize + 1 
-            this_intsec_weights.append([road, volume])
+            normalised_volumes = (volume - 1) / blocksize + 1 
+            this_intsec_weights.append((road, normalised_volumes))
         intsec_weightings.append(this_intsec_weights)
     return intsec_weightings
 
